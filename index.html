@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academy COE — Centre of Excellence</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:       #0d2554;
+  --navy2:      #1a3a6b;
+  --navy3:      #0a1e45;
+  --yellow:     #f5a623;
+  --yellow2:    #ffc85a;
+  --yellow-dim: rgba(245,166,35,0.12);
+  --yellow-border: rgba(245,166,35,0.45);
+  --bg:         #f5f7fc;
+  --bg2:        #ffffff;
+  --bg3:        #eaeefc;
+  --text:       #0d2554;
+  --text2:      #2d4a7a;
+  --text3:      #6b85aa;
+  --border:     rgba(13,37,84,0.1);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--bg3); }
+::-webkit-scrollbar-thumb { background:var(--yellow); }
+
+/* ── NAVBAR ── */
+nav {
+  position: fixed; top:0; left:0; right:0;
+  z-index: 100;
+  padding: 0 40px;
+  display: flex; align-items:center; justify-content:space-between;
+  height: 68px;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 20px rgba(13,37,84,0.08);
+}
+.nav-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: var(--navy);
+  text-decoration: none;
+  display: flex; align-items:center; gap:10px;
+}
+.nav-brand span { color: var(--yellow); }
+.nav-links { display:flex; align-items:center; gap:32px; }
+.nav-links a {
+  font-size: 11px; font-weight:600;
+  letter-spacing: 2px; text-transform:uppercase;
+  color: var(--text2); text-decoration:none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--yellow); }
+.nav-cta {
+  background: var(--yellow) !important;
+  color: var(--navy) !important;
+  padding: 10px 20px;
+  font-weight: 700 !important;
+}
+.nav-cta:hover { background: var(--yellow2) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items:center;
+  position: relative; overflow:hidden;
+  padding: 100px 60px 60px;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, #1e4a8a 100%);
+}
+.hero-pattern {
+  position:absolute; inset:0; opacity:.04;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--yellow) 0, var(--yellow) 1px,
+    transparent 0, transparent 50%
+  );
+  background-size: 20px 20px;
+}
+.hero-accent {
+  position:absolute; left:0; top:0; bottom:0;
+  width: 5px;
+  background: linear-gradient(to bottom, transparent, var(--yellow), transparent);
+}
+.hero-content { position:relative; z-index:2; max-width:700px; }
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:10px;
+  background: rgba(245,166,35,0.2);
+  border: 1px solid rgba(245,166,35,0.5);
+  padding: 6px 16px;
+  font-size: 10px; font-weight:700;
+  letter-spacing: 4px; text-transform:uppercase;
+  color: var(--yellow);
+  margin-bottom: 24px;
+}
+.hero-eyebrow::before {
+  content:''; width:6px; height:6px;
+  background: var(--yellow); border-radius:50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; transform:scale(1); }
+  50% { opacity:.4; transform:scale(1.4); }
+}
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: .95;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.hero-title span { color: var(--yellow); }
+.hero-subtitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(20px, 3vw, 32px);
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 28px;
+}
+.hero-desc {
+  font-size: 15px; color: rgba(255,255,255,0.8);
+  line-height: 1.9; max-width:520px;
+  margin-bottom: 40px;
+}
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  background: var(--yellow);
+  color: var(--navy);
+  padding: 14px 32px;
+  font-family:'Outfit',sans-serif;
+  font-size:12px; font-weight:800;
+  letter-spacing:3px; text-transform:uppercase;
+  text-decoration:none; transition:all .3s;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+.btn-primary:hover { background:var(--yellow2); transform:translateY(-2px); }
+.btn-outline {
+  display:inline-flex; align-items:center; gap:8px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: #ffffff;
+  padding: 14px 32px;
+  font-size:12px; font-weight:700;
+  letter-spacing:3px; text-transform:uppercase;
+  text-decoration:none; transition:all .3s;
+}
+.btn-outline:hover { background:rgba(255,255,255,0.1); border-color:white; }
+
+/* hero stats */
+.hero-stats {
+  display:flex; gap:40px; margin-top:56px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.stat-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size: 42px; color:var(--yellow);
+  line-height:1;
+}
+.stat-label {
+  font-size: 10px; font-weight:600;
+  letter-spacing:2px; text-transform:uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+
+/* ── SECTION HEADERS ── */
+.section { padding: 100px 60px; }
+.section-tag {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:10px; font-weight:700;
+  letter-spacing:4px; text-transform:uppercase;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.section-tag::before {
+  content:''; display:block;
+  width:24px; height:2px;
+  background: var(--yellow);
+}
+.section-tag::before { background: var(--navy); }
+.section-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size: clamp(36px, 5vw, 56px);
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 12px;
+  color: var(--navy);
+}
+.section-title span { color: var(--yellow); }
+.section-desc {
+  font-size:15px; color:var(--text2);
+  max-width:560px; line-height:1.8;
+}
+
+/* ── TICKER ── */
+.ticker {
+  background: var(--yellow);
+  padding: 12px 0;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.ticker-inner {
+  display:inline-block;
+  animation: ticker 30s linear infinite;
+  font-family:'Bebas Neue',sans-serif;
+  font-size: 14px; letter-spacing:4px;
+  color: var(--navy);
+}
+@keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.ticker-sep { margin: 0 24px; color:rgba(8,15,30,.4); }
+
+/* ── KURSUS SECTION ── */
+#kursus { background: var(--bg); }
+.kursus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2px;
+  margin-top: 56px;
+}
+.kursus-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 32px;
+  display:flex; flex-direction:column;
+  position:relative; overflow:hidden;
+  transition: all .3s;
+}
+.kursus-card::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0;
+  height:3px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+}
+.kursus-card:hover { border-color:var(--yellow-border); transform:translateY(-4px); background:var(--bg2); box-shadow:0 12px 40px rgba(13,37,84,0.12); }
+.kursus-card:hover::before { transform:scaleX(1); }
+
+.kursus-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:72px; font-weight:400;
+  color:rgba(245,166,35,0.08);
+  line-height:1; margin-bottom:-8px;
+  transition: color .3s;
+}
+.kursus-card:hover .kursus-num { color:rgba(245,166,35,0.18); }
+.kursus-tag {
+  display:inline-block;
+  background: var(--yellow-dim);
+  border: 1px solid var(--yellow-border);
+  color: var(--yellow);
+  font-size:9px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase;
+  padding: 4px 10px;
+  margin-bottom: 14px;
+  width:fit-content;
+}
+.kursus-name {
+  font-size:15px; font-weight:700;
+  letter-spacing:.5px;
+  color:var(--navy);
+  line-height:1.4; margin-bottom:8px;
+}
+.kursus-price {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px; letter-spacing:2px;
+  color:var(--yellow);
+  margin-bottom:16px;
+}
+.kursus-price span {
+  font-family:'Outfit',sans-serif;
+  font-size:11px; font-weight:600;
+  color:var(--white3);
+  letter-spacing:1px;
+}
+.kursus-desc {
+  font-size:13px; color:var(--text2);
+  line-height:1.8; margin-bottom:16px;
+}
+.learn-label {
+  font-size:10px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--text3); margin-bottom:8px;
+}
+.learn-list {
+  list-style:none; margin-bottom:16px;
+  display:flex; flex-direction:column; gap:6px;
+}
+.learn-list li {
+  font-size:12px; color:var(--text2);
+  padding-left:16px; position:relative; line-height:1.5;
+}
+.learn-list li::before {
+  content:'▸';
+  position:absolute; left:0;
+  color:var(--yellow); font-size:10px;
+}
+.kursus-badges {
+  display:flex; gap:6px; flex-wrap:wrap; margin-bottom:24px;
+}
+.kursus-badge {
+  font-size:9px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase;
+  padding:4px 10px;
+  border:1px solid var(--border);
+  color:var(--text2);
+  background:var(--bg3);
+}
+.card-actions {
+  display:flex; gap:8px; margin-top:auto;
+}
+.btn-detail {
+  flex:1; padding:12px;
+  background:transparent;
+  border:1px solid var(--yellow-border);
+  color:var(--yellow);
+  font-family:'Outfit',sans-serif;
+  font-size:10px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase;
+  cursor:pointer; transition:all .3s;
+}
+.btn-detail:hover { background:var(--yellow-dim); }
+.btn-daftar {
+  flex:1.5; padding:12px;
+  background:var(--yellow);
+  border:none; color:var(--navy);
+  font-family:'Outfit',sans-serif;
+  font-size:10px; font-weight:800;
+  letter-spacing:2px; text-transform:uppercase;
+  cursor:pointer; transition:all .3s;
+  text-decoration:none; text-align:center;
+  display:inline-flex; align-items:center; justify-content:center;
+}
+.btn-daftar:hover { background:var(--yellow2); }
+.btn-daftar.disabled {
+  background:rgba(245,166,35,0.3);
+  color:rgba(8,15,30,0.5); cursor:not-allowed;
+}
+
+/* ── GALERI ── */
+#galeri { background: var(--bg2); }
+.gallery-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3px;
+  margin-top:56px;
+}
+.gallery-item { overflow:hidden; position:relative; }
+.gallery-item img {
+  width:100%; height:auto;
+  display:block; filter:brightness(.85);
+  transition:transform .5s ease, filter .4s;
+}
+.gallery-item:hover img { transform:scale(1.03); filter:brightness(1); }
+.gallery-link {
+  position:relative; display:block; text-decoration:none;
+}
+.gallery-overlay {
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(8,15,30,0);
+  transition:background .3s;
+}
+.gallery-link:hover .gallery-overlay {
+  background:rgba(245,166,35,0.15);
+}
+.gallery-cta-pill {
+  background:var(--yellow);
+  color:var(--navy);
+  font-family:'Outfit',sans-serif;
+  font-size:10px; font-weight:800;
+  letter-spacing:3px; text-transform:uppercase;
+  padding:10px 24px;
+  transform:translateY(10px);
+  opacity:0; transition:all .3s;
+}
+.gallery-link:hover .gallery-cta-pill {
+  opacity:1; transform:translateY(0);
+}
+.fb-btn {
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  margin-top:24px;
+  padding:16px 32px;
+  background:transparent;
+  border:2px solid var(--navy);
+  color:var(--navy);
+  font-size:11px; font-weight:700;
+  letter-spacing:3px; text-transform:uppercase;
+  text-decoration:none; transition:all .3s;
+  max-width:360px;
+}
+.fb-btn:hover { background:var(--navy); color:white; }
+
+/* ── KENAPA ── */
+#kenapa { background: var(--bg); }
+.kenapa-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+  gap:2px;
+  margin-top:56px;
+}
+.kenapa-card {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  padding:36px 32px;
+  transition:all .3s;
+  position:relative; overflow:hidden;
+}
+.kenapa-card:hover { border-color:var(--yellow-border); box-shadow:0 8px 24px rgba(13,37,84,0.1); }
+.kenapa-icon {
+  font-size:32px; margin-bottom:16px; display:block;
+}
+.kenapa-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px; letter-spacing:2px;
+  color:var(--navy);
+  margin-bottom:10px;
+}
+.kenapa-desc { font-size:13px; color:var(--text2); line-height:1.8; }
+
+/* Stats bar */
+.stats-bar {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:var(--yellow);
+  margin-top:56px;
+}
+.stats-item {
+  padding:32px 24px;
+  text-align:center;
+  border-right:1px solid rgba(8,15,30,0.15);
+}
+.stats-item:last-child { border-right:none; }
+.stats-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:48px; color:var(--navy);
+  line-height:1;
+}
+.stats-label {
+  font-size:10px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase;
+  color:rgba(8,15,30,0.6);
+  margin-top:4px;
+}
+
+/* Quote */
+.quote-section {
+  padding:80px 60px;
+  background:var(--navy);
+  text-align:center;
+  position:relative;
+}
+.quote-mark {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:120px; color:rgba(245,166,35,0.3);
+  line-height:.5; display:block; margin-bottom:24px;
+}
+.quote-text {
+  font-family:'Outfit',sans-serif;
+  font-size:clamp(16px,2.5vw,22px);
+  font-weight:300; font-style:italic;
+  color:var(--white2); line-height:1.7;
+  max-width:700px; margin:0 auto 20px;
+}
+.quote-author {
+  font-size:11px; font-weight:700;
+  letter-spacing:4px; text-transform:uppercase;
+  color:var(--yellow);
+}
+
+/* ── CTA SECTION ── */
+.cta-section {
+  padding:100px 60px;
+  background: linear-gradient(135deg, var(--navy2) 0%, var(--navy3) 50%, var(--blue) 100%);
+  text-align:center; position:relative; overflow:hidden;
+}
+.cta-section::before {
+  content:'';
+  position:absolute; inset:0; opacity:.03;
+  background-image: repeating-linear-gradient(
+    45deg, var(--yellow) 0, var(--yellow) 1px,
+    transparent 0, transparent 50%
+  );
+  background-size:20px 20px;
+}
+.cta-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(40px,6vw,72px);
+  letter-spacing:3px; line-height:1;
+  margin-bottom:16px;
+}
+.cta-title span { color:var(--yellow); }
+.cta-desc {
+  font-size:15px; color:var(--white2);
+  max-width:500px; margin:0 auto 40px;
+  line-height:1.8;
+}
+.cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+/* ── LOKASI ── */
+#lokasi { background: var(--bg2); }
+.lokasi-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  margin-top:56px;
+}
+.info-block {
+  display:flex; flex-direction:column; gap:20px;
+}
+.info-item {
+  display:flex; gap:16px; align-items:flex-start;
+  padding:24px;
+  background:var(--bg2);
+  border:1px solid var(--border);
+  transition:border-color .3s;
+}
+.info-item:hover { border-color:var(--yellow-border); }
+.info-icon {
+  width:44px; height:44px; flex-shrink:0;
+  background:var(--yellow-dim);
+  border:1px solid var(--yellow-border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px;
+}
+.info-label {
+  font-size:10px; font-weight:700;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--navy); margin-bottom:6px;
+}
+.info-value { font-size:13px; color:var(--text2); line-height:1.7; }
+.info-value a { color:var(--text2); text-decoration:none; transition:color .2s; }
+.info-value a:hover { color:var(--yellow); }
+
+/* Map card */
+.map-card {
+  background:var(--bg2);
+  border:1px solid var(--border);
+  overflow:hidden;
+}
+.map-visual {
+  height:280px;
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.map-grid {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(245,166,35,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(245,166,35,.05) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.map-road-h {
+  position:absolute; top:50%; left:0; right:0;
+  height:4px; background:rgba(245,166,35,.2);
+  transform:translateY(-50%);
+}
+.map-road-v {
+  position:absolute; top:0; bottom:0; left:42%;
+  width:4px; background:rgba(245,166,35,.2);
+}
+.map-pin {
+  position:relative; z-index:2; text-align:center;
+}
+.map-pin-icon { font-size:52px; filter:drop-shadow(0 0 16px rgba(245,166,35,.6)); }
+.map-pin-label {
+  margin-top:10px;
+  background:var(--yellow);
+  color:var(--navy);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:11px; letter-spacing:3px;
+  padding:6px 18px;
+}
+.map-footer {
+  padding:20px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+  border-top:1px solid var(--border);
+}
+.map-footer a {
+  font-size:10px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--navy); text-decoration:none;
+  transition:color .2s;
+}
+.map-footer a:hover { color:var(--yellow2); }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--navy);
+  border-top: 3px solid var(--yellow);
+  padding:60px 60px 0;
+}
+.footer-grid {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:60px;
+  padding-bottom:60px;
+}
+.footer-brand {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px; letter-spacing:3px;
+  margin-bottom:14px;
+}
+.footer-brand span { color:var(--yellow); }
+.footer-desc { font-size:13px; color:rgba(255,255,255,0.7); line-height:1.9; margin-bottom:20px; }
+.footer-social { display:flex; gap:10px; }
+.social-btn {
+  width:38px; height:38px;
+  background:var(--yellow-dim);
+  border:1px solid var(--yellow-border);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--yellow); font-size:13px; font-weight:700;
+  text-decoration:none; transition:all .2s;
+}
+.social-btn:hover { background:var(--yellow); color:var(--navy); }
+.footer-col h4 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:16px; letter-spacing:3px;
+  color:var(--yellow); margin-bottom:20px;
+}
+.footer-col ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.footer-col ul li a {
+  font-size:13px; color:rgba(255,255,255,0.7);
+  text-decoration:none; transition:color .2s;
+}
+.footer-col ul li a:hover { color:var(--yellow); }
+.footer-bottom {
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding:20px 0;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.footer-copy { font-size:11px; color:rgba(255,255,255,0.5); letter-spacing:1px; }
+.footer-copy span { color:var(--yellow); }
+
+/* ── WA FLOAT ── */
+.wa-float {
+  position:fixed; bottom:28px; right:28px; z-index:999;
+  width:58px; height:58px;
+  background:var(--yellow);
+  border-radius:0;
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none;
+  font-size:26px;
+  box-shadow:0 8px 24px rgba(245,166,35,.4);
+  transition:all .3s;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+}
+.wa-float:hover { background:var(--yellow2); transform:scale(1.1); }
+
+/* ── LIGHTBOX ── */
+.lightbox {
+  display:none; position:fixed; inset:0;
+  background:rgba(8,15,30,.93);
+  z-index:9999;
+  align-items:center; justify-content:center;
+  padding:20px; backdrop-filter:blur(8px);
+  cursor:zoom-out;
+}
+.lightbox.active { display:flex; animation:lbFade .2s ease; }
+@keyframes lbFade { from{opacity:0} to{opacity:1} }
+.lightbox-inner {
+  position:relative;
+  max-width:90vw; max-height:90vh;
+  cursor:default;
+  animation:lbZoom .3s cubic-bezier(.16,1,.3,1);
+}
+@keyframes lbZoom {
+  from{transform:scale(.88);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+.lightbox-inner img {
+  max-width:100%; max-height:90vh;
+  width:auto; height:auto; display:block;
+  box-shadow:0 40px 100px rgba(0,0,0,.8);
+}
+.lightbox-close {
+  position:absolute; top:-16px; right:-16px;
+  width:36px; height:36px;
+  background:var(--yellow); border:none;
+  color:var(--navy); font-size:14px; font-weight:700;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  transition:background .2s; z-index:10;
+}
+.lightbox-close:hover { background:var(--yellow2); }
+.lightbox-cta {
+  position:absolute; bottom:-52px;
+  left:50%; transform:translateX(-50%);
+  display:flex; gap:12px; white-space:nowrap;
+}
+.lightbox-cta a {
+  padding:12px 24px;
+  font-family:'Outfit',sans-serif;
+  font-size:10px; font-weight:800;
+  letter-spacing:3px; text-transform:uppercase;
+  text-decoration:none; transition:all .3s;
+}
+.lc-primary { background:var(--yellow); color:var(--navy); }
+.lc-primary:hover { background:var(--yellow2); }
+.lc-secondary {
+  background:transparent;
+  border:1px solid var(--yellow-border);
+  color:var(--yellow);
+}
+.lc-secondary:hover { background:var(--yellow-dim); border-color:var(--yellow); }
+
+@media(max-width:768px){
+  nav { padding:0 20px; }
+  .nav-links { display:none; }
+  .hero { padding:100px 24px 60px; }
+  .hero-title { font-size: clamp(36px, 11vw, 52px) !important; letter-spacing:1px !important; }
+  .section { padding:70px 24px; }
+  .kursus-grid { grid-template-columns:1fr; }
+  .gallery-grid { grid-template-columns:1fr; }
+  .kenapa-grid { grid-template-columns:1fr; }
+  .stats-bar { grid-template-columns:1fr 1fr; }
+  .lokasi-grid { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr; gap:40px; }
+  .footer-bottom { flex-direction:column; gap:10px; text-align:center; }
+  .cta-section { padding:70px 24px; }
+  .hero-stats { gap:24px; flex-wrap:wrap; }
+  .quote-section { padding:60px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="nav-brand">ACADEMY <span>COE</span></a>
+  <div class="nav-links">
+    <a href="#kursus">Kursus</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#kenapa">Kenapa COE</a>
+    <a href="#lokasi">Lokasi</a>
+    <a href="https://wa.me/60199361079" target="_blank" class="nav-cta">Hubungi Kami</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Centre of Excellence — Akademi Kemahiran Usahawan</div>
+    <h1 class="hero-title">ACADEMY <span>COE</span></h1>
+    <p class="hero-subtitle">Belajar · Formulasi · Hasilkan · Jana Pendapatan</p>
+    <p class="hero-desc">
+      Pusat latihan kemahiran usahawan yang menyediakan kursus praktikal berkualiti tinggi.
+      Lebih dari <strong>15 tahun</strong> pengalaman membimbing usahawan dari zero hingga berjaya.
+    </p>
+    <div class="hero-btns">
+      <a href="#kursus" class="btn-primary">Lihat Kursus ↓</a>
+      <a href="https://wa.me/60199361079" target="_blank" class="btn-outline">WhatsApp Kami</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Tahun Pengalaman</div>
+      </div>
+      <div>
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Jenis Kursus</div>
+      </div>
+      <div>
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Alumni Berjaya</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Hands-On</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    BELAJAR <span class="ticker-sep">★</span>
+    FORMULASI <span class="ticker-sep">★</span>
+    HASILKAN <span class="ticker-sep">★</span>
+    JANA PENDAPATAN <span class="ticker-sep">★</span>
+    100% PRAKTIKAL <span class="ticker-sep">★</span>
+    SIJIL DISEDIAKAN <span class="ticker-sep">★</span>
+    FREE EBOOK <span class="ticker-sep">★</span>
+    MAKAN TENGAHARI <span class="ticker-sep">★</span>
+    BELAJAR <span class="ticker-sep">★</span>
+    FORMULASI <span class="ticker-sep">★</span>
+    HASILKAN <span class="ticker-sep">★</span>
+    JANA PENDAPATAN <span class="ticker-sep">★</span>
+    100% PRAKTIKAL <span class="ticker-sep">★</span>
+    SIJIL DISEDIAKAN <span class="ticker-sep">★</span>
+    FREE EBOOK <span class="ticker-sep">★</span>
+    MAKAN TENGAHARI <span class="ticker-sep">★</span>
+  </div>
+</div>
+
+<!-- KURSUS -->
+<section class="section" id="kursus">
+  <div class="section-tag">Program Latihan</div>
+  <h2 class="section-title">KURSUS <span>PILIHAN</span> KAMI</h2>
+  <p class="section-desc">Setiap kursus direka 100% praktikal — anda terus boleh hasilkan produk sendiri dan mulakan perniagaan dengan penuh keyakinan.</p>
+
+  <div class="kursus-grid">
+
+    <!-- 01 JUS -->
+    <div class="kursus-card">
+      <div class="kursus-num">01</div>
+      <div class="kursus-tag">RM899 / peserta</div>
+      <div class="kursus-name">Kursus Pemprosesan Jus Buah-Buahan & Minuman Berkarbonat</div>
+      <div class="kursus-price">RM899 <span>/ peserta</span></div>
+      <p class="kursus-desc">Kuasai teknik pemprosesan jus buah-buahan dan minuman berkarbonat secara praktikal dari A hingga Z.</p>
+      <div class="learn-label">Anda akan belajar:</div>
+      <ul class="learn-list">
+        <li>Pengenalan & teknik pemprosesan jus</li>
+        <li>Formulasi & penstabilan jus</li>
+        <li>Teknik pasteurisasi suhu rendah & tinggi</li>
+        <li>Pembuatan minuman berkarbonat</li>
+        <li>Pembungkusan, pelabelan & pemasaran</li>
+      </ul>
+      <div class="kursus-badges">
+        <span class="kursus-badge">100% Praktikal</span>
+        <span class="kursus-badge">Sijil</span>
+        <span class="kursus-badge">Free Ebook</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-detail" onclick="openLightbox('lb-01')">Lihat Detail</button>
+        <a href="#" class="btn-daftar disabled">Daftar</a>
+      </div>
+    </div>
+
+    <!-- 02 PENGAWETAN -->
+    <div class="kursus-card">
+      <div class="kursus-num">02</div>
+      <div class="kursus-tag">RM899 / peserta</div>
+      <div class="kursus-name">Kursus Pengawetan Makanan, Minuman & Buah-Buahan</div>
+      <div class="kursus-price">RM899 <span>/ peserta</span></div>
+      <p class="kursus-desc">Belajar teknik pengawetan betul, selamat dan praktikal untuk hasil tahan lama & berkualiti. Produk tahan 1 tahun 5 bulan!</p>
+      <div class="learn-label">Anda akan belajar:</div>
+      <ul class="learn-list">
+        <li>Asas pengawetan makanan & teknik moden</li>
+        <li>Formulasi & resepi produk berkualiti</li>
+        <li>Pelbagai kaedah: jeruk, pengeringan, sejuk beku</li>
+        <li>Keselamatan & kualiti makanan</li>
+        <li>Pemasaran & pengiraan kos</li>
+      </ul>
+      <div class="kursus-badges">
+        <span class="kursus-badge">100% Praktikal</span>
+        <span class="kursus-badge">Sijil</span>
+        <span class="kursus-badge">Free Ebook</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-detail" onclick="openLightbox('lb-02')">Lihat Detail</button>
+        <a href="#" class="btn-daftar disabled">Daftar</a>
+      </div>
+    </div>
+
+    <!-- 03 KELULUT -->
+    <div class="kursus-card">
+      <div class="kursus-num">03</div>
+      <div class="kursus-tag">RM1,200 / peserta</div>
+      <div class="kursus-name">Kursus Pemprosesan Bahan Asas Kelulut</div>
+      <div class="kursus-price">RM1,200 <span>/ peserta</span></div>
+      <p class="kursus-desc">Kuasai teknik pemprosesan bahan asas kelulut secara saintifik, bersih, selamat dan berkualiti tinggi.</p>
+      <div class="learn-label">Anda akan belajar:</div>
+      <ul class="learn-list">
+        <li>Pengenalan kelulut & hasilnya</li>
+        <li>Bahan asas & kawalan kualiti</li>
+        <li>Teknik pemprosesan & formulasi</li>
+        <li>Keselamatan, GMP & pelabelan</li>
+        <li>Pemasaran & penjenamaan produk</li>
+      </ul>
+      <div class="kursus-badges">
+        <span class="kursus-badge">100% Praktikal</span>
+        <span class="kursus-badge">Sijil</span>
+        <span class="kursus-badge">Free Ebook</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-detail" onclick="openLightbox('lb-03')">Lihat Detail</button>
+        <a href="#" class="btn-daftar disabled">Daftar</a>
+      </div>
+    </div>
+
+    <!-- 04 CUCIAN -->
+    <div class="kursus-card">
+      <div class="kursus-num">04</div>
+      <div class="kursus-tag">RM1,200 / peserta</div>
+      <div class="kursus-name">Kursus Pemprosesan Produk Cucian Industri</div>
+      <div class="kursus-price">RM1,200 <span>/ peserta</span></div>
+      <p class="kursus-desc">Belajar ilmu sebenar, praktik dengan yakin. Hasilkan produk cucian industri berkualiti & jana pendapatan lumayan.</p>
+      <div class="learn-label">Anda akan belajar:</div>
+      <ul class="learn-list">
+        <li>Asas kimia & jenis bahan cucian</li>
+        <li>Formulasi & penyediaan produk industri</li>
+        <li>Teknik & aplikasi profesional</li>
+        <li>Keselamatan & penyimpanan bahan</li>
+        <li>Pemasaran & pengiraan kos</li>
+      </ul>
+      <div class="kursus-badges">
+        <span class="kursus-badge">100% Praktikal</span>
+        <span class="kursus-badge">Sijil</span>
+        <span class="kursus-badge">Free Ebook</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-detail" onclick="openLightbox('lb-04')">Lihat Detail</button>
+        <a href="#" class="btn-daftar disabled">Daftar</a>
+      </div>
+    </div>
+
+    <!-- 05 AROMATERAPI -->
+    <div class="kursus-card">
+      <div class="kursus-num">05</div>
+      <div class="kursus-tag">RM1,200 / peserta</div>
+      <div class="kursus-name">Kursus Pemprosesan Produk Aromaterapi</div>
+      <div class="kursus-price">RM1,200 <span>/ peserta</span></div>
+      <p class="kursus-desc">Terokai dunia aromaterapi yang menggabungkan ilmu saintifik dan penyembuhan semula jadi untuk keseimbangan minda, emosi dan tubuh.</p>
+      <div class="learn-label">Anda akan belajar:</div>
+      <ul class="learn-list">
+        <li>Pengenalan minyak pati & kaedah ekstraksi</li>
+        <li>Sifat terapeutik & aplikasi praktikal</li>
+        <li>Cara pencampuran minyak pati (blending)</li>
+        <li>Penyediaan produk aromaterapi</li>
+        <li>Etika & peraturan dalam industri</li>
+      </ul>
+      <div class="kursus-badges">
+        <span class="kursus-badge">100% Praktikal</span>
+        <span class="kursus-badge">Sijil</span>
+        <span class="kursus-badge">Free Ebook</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-detail" onclick="openLightbox('lb-05')">Lihat Detail</button>
+        <a href="#" class="btn-daftar disabled">Daftar</a>
+      </div>
+    </div>
+
+    <!-- 06 SKINCARE -->
+    <div class="kursus-card">
+      <div class="kursus-num">06</div>
+      <div class="kursus-tag">RM1,200 / peserta</div>
+      <div class="kursus-name">Kursus Pemprosesan Produk Skincare</div>
+      <div class="kursus-price">RM1,200 <span>/ peserta</span></div>
+      <p class="kursus-desc">Belajar formulasi, hasilkan produk, bina jenama sendiri. Kuasai teknik skincare yang selamat, berkesan dan berdaya saing.</p>
+      <div class="learn-label">Anda akan belajar:</div>
+      <ul class="learn-list">
+        <li>Asas penjagaan kulit & bahan aktif</li>
+        <li>Formulasi produk skincare stabil & berkesan</li>
+        <li>Kualiti & keselamatan produk</li>
+        <li>Praktikal hands-on dari awal hingga siap</li>
+        <li>Pemasaran & pembinaan jenama</li>
+      </ul>
+      <div class="kursus-badges">
+        <span class="kursus-badge">100% Praktikal</span>
+        <span class="kursus-badge">Sijil</span>
+        <span class="kursus-badge">Free Ebook</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-detail" onclick="openLightbox('lb-06')">Lihat Detail</button>
+        <a href="#" class="btn-daftar disabled">Daftar</a>
+      </div>
+    </div>
+
+    <!-- 07 DETERGENT -->
+    <div class="kursus-card">
+      <div class="kursus-num">07</div>
+      <div class="kursus-tag">RM899 / peserta</div>
+      <div class="kursus-name">Kursus Pemprosesan Detergent Cair Komersial</div>
+      <div class="kursus-price">RM899 <span>/ peserta</span></div>
+      <p class="kursus-desc">Kuasai formulasi, hasilkan produk berkualiti, pasarkan dengan yakin. Belajar rahsia detergent komersial yang menguntungkan.</p>
+      <div class="learn-label">Anda akan belajar:</div>
+      <ul class="learn-list">
+        <li>Asas & bahan detergent berkualiti</li>
+        <li>Formulasi detergent cair komersial</li>
+        <li>Praktikal hands-on dari awal hingga siap</li>
+        <li>Kualiti & keselamatan produk</li>
+        <li>Pemasaran & pengiraan kos</li>
+      </ul>
+      <div class="kursus-badges">
+        <span class="kursus-badge">100% Praktikal</span>
+        <span class="kursus-badge">Sijil</span>
+        <span class="kursus-badge">Free Ebook</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-detail" onclick="openLightbox('lb-07')">Lihat Detail</button>
+        <a href="#" class="btn-daftar disabled">Daftar</a>
+      </div>
+    </div>
+
+    <!-- 08 PERFUMERY -->
+    <div class="kursus-card">
+      <div class="kursus-num">08</div>
+      <div class="kursus-tag">RM1,200 / peserta</div>
+      <div class="kursus-name">Kursus Pemprosesan Perfumery (Minyak Wangi)</div>
+      <div class="kursus-price">RM1,200 <span>/ peserta</span></div>
+      <p class="kursus-desc">Kuasai seni penciptaan wangian, teknik formulasi dan hasilkan produk perfume berdaya saing. Cipta wangian signature sendiri!</p>
+      <div class="learn-label">Anda akan belajar:</div>
+      <ul class="learn-list">
+        <li>Asas perfumery & pyramid nota haruman</li>
+        <li>Bahan mentah berkualiti & essential oils</li>
+        <li>Formulasi & blending teknik profesional</li>
+        <li>Kualiti, keselamatan & penyimpanan</li>
+        <li>Pemasaran & pembinaan jenama</li>
+      </ul>
+      <div class="kursus-badges">
+        <span class="kursus-badge">100% Praktikal</span>
+        <span class="kursus-badge">Sijil</span>
+        <span class="kursus-badge">Free Ebook</span>
+      </div>
+      <div class="card-actions">
+        <button class="btn-detail" onclick="openLightbox('lb-08')">Lihat Detail</button>
+        <a href="#" class="btn-daftar disabled">Daftar</a>
+      </div>
+    </div>
+
+    <!-- 09 SAMBAL & SOS — Coming Soon -->
+    <div class="kursus-card" style="opacity:.6;">
+      <div class="kursus-num">09</div>
+      <div class="kursus-tag" style="background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15);color:var(--white3);">Akan Datang</div>
+      <div class="kursus-name">Kursus Pemprosesan Sambal dan Sos</div>
+      <div class="kursus-price" style="color:var(--white3);">RM899 <span>/ peserta</span></div>
+      <p class="kursus-desc">Kuasai teknik pemprosesan sambal dan sos yang sedap, berkualiti dan tahan lama untuk keperluan keluarga, jualan dan industri kecil.</p>
+      <div class="kursus-badges">
+        <span class="kursus-badge">100% Praktikal</span>
+        <span class="kursus-badge">Sijil</span>
+        <span class="kursus-badge">Free Ebook</span>
+      </div>
+      <div class="card-actions" style="margin-top:auto;">
+        <a href="https://wa.me/60199361079?text=Saya%20berminat%20Kursus%20Sambal%20%26%20Sos%20Academy%20COE" target="_blank" class="btn-daftar" style="flex:1;">Tanya Admin</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Waktu -->
+  <div style="margin-top:40px;padding:20px 28px;background:var(--yellow-dim);border:1px solid var(--yellow-border);display:inline-flex;align-items:center;gap:12px;">
+    <span style="color:var(--yellow);font-size:18px;">⏰</span>
+    <span style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--white2);">Waktu Kursus: 9.30 Pagi – 4.30 Petang</span>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section class="section" id="galeri">
+  <div class="section-tag">Testimoni & Aktiviti</div>
+  <h2 class="section-title">PESERTA <span>KAMI</span> BERJAYA</h2>
+  <p class="section-desc">Ratusan peserta telah hasilkan produk sendiri dan mula perniagaan. Giliran anda pula!</p>
+  <div class="gallery-grid" style="margin-top:56px;">
+    <div class="gallery-item">
+      <img src="img/gallery-peserta.png" alt="Peserta Academy COE">
+    </div>
+    <div class="gallery-item">
+      <a href="https://www.tiktok.com/@coe_mas?_r=1&_t=ZS-96Jtls7mvJa" target="_blank" class="gallery-link">
+        <img src="img/gallery-testimoni.png" alt="Testimoni Peserta">
+        <div class="gallery-overlay">
+          <div class="gallery-cta-pill">▶ &nbsp;Tonton di TikTok</div>
+        </div>
+      </a>
+    </div>
+  </div>
+  <a href="https://www.facebook.com/share/1BiKUVSktQ/" target="_blank" class="fb-btn">
+    <span>f</span> Lihat Lebih Banyak di Facebook →
+  </a>
+</section>
+
+<!-- KENAPA -->
+<section class="section" id="kenapa">
+  <div class="section-tag">Kelebihan Kami</div>
+  <h2 class="section-title">KENAPA PILIH <span>ACADEMY COE?</span></h2>
+  <p class="section-desc">Kami bukan sekadar mengajar teori. Setiap kursus berfokuskan praktikal — anda terus mampu hasilkan produk sendiri.</p>
+  <div class="kenapa-grid">
+    <div class="kenapa-card">
+      <span class="kenapa-icon">🎓</span>
+      <div class="kenapa-title">PENGAJAR BERPENGALAMAN</div>
+      <p class="kenapa-desc">Lebih 15 tahun pengalaman dalam industri pemprosesan produk. Bimbingan dari pakar sebenar industri.</p>
+    </div>
+    <div class="kenapa-card">
+      <span class="kenapa-icon">🔬</span>
+      <div class="kenapa-title">100% HANDS-ON</div>
+      <p class="kenapa-desc">Anda terus buat produk sendiri pada hari kursus. Bukan sekadar tengok demo — praktikal dari A hingga Z.</p>
+    </div>
+    <div class="kenapa-card">
+      <span class="kenapa-icon">📖</span>
+      <div class="kenapa-title">MODUL EKSKLUSIF</div>
+      <p class="kenapa-desc">Free Ebook bernilai RM85 disertakan. Resipi & formulasi terbukti yang boleh terus guna untuk bisnes.</p>
+    </div>
+    <div class="kenapa-card">
+      <span class="kenapa-icon">🍽️</span>
+      <div class="kenapa-title">MAKAN TENGAHARI</div>
+      <p class="kenapa-desc">Makan tengahari disediakan untuk semua peserta. Fokus belajar, kami uruskan keselesaan anda.</p>
+    </div>
+    <div class="kenapa-card">
+      <span class="kenapa-icon">📜</span>
+      <div class="kenapa-title">SIJIL PENYERTAAN</div>
+      <p class="kenapa-desc">Sijil penyertaan diberikan kepada setiap peserta yang tamat kursus sebagai bukti kemahiran.</p>
+    </div>
+    <div class="kenapa-card">
+      <span class="kenapa-icon">💼</span>
+      <div class="kenapa-title">ILMU UNTUK BISNES</div>
+      <p class="kenapa-desc">Formula, teknik dan panduan pemasaran diberikan untuk bantu anda mulakan bisnes dengan yakin.</p>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stats-item">
+      <div class="stats-num">15+</div>
+      <div class="stats-label">Tahun Pengalaman</div>
+    </div>
+    <div class="stats-item">
+      <div class="stats-num">8+</div>
+      <div class="stats-label">Jenis Kursus</div>
+    </div>
+    <div class="stats-item">
+      <div class="stats-num">500+</div>
+      <div class="stats-label">Alumni Berjaya</div>
+    </div>
+    <div class="stats-item">
+      <div class="stats-num">100%</div>
+      <div class="stats-label">Hands-On</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <span class="quote-mark">"</span>
+  <p class="quote-text">Ilmu memberi keyakinan, praktikal melahirkan kemahiran, dan tindakan menjadikan anda usahawan berjaya.</p>
+  <div class="quote-author">— Academy COE, Centre of Excellence</div>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title">BERSEDIA UNTUK<br><span>MULAKAN?</span></h2>
+  <p class="cta-desc">Hubungi kami sekarang untuk pertanyaan & pendaftaran kursus. Tempat terhad setiap sesi!</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/60199361079?text=Saya%20ingin%20tanya%20tentang%20kursus%20Academy%20COE" target="_blank" class="btn-primary">WhatsApp Kami Sekarang</a>
+    <a href="#kursus" class="btn-outline">Lihat Kursus</a>
+  </div>
+</section>
+
+<!-- LOKASI -->
+<section class="section" id="lokasi">
+  <div class="section-tag">Jumpa Kami</div>
+  <h2 class="section-title">LOKASI & <span>HUBUNGI</span></h2>
+  <div class="lokasi-grid">
+    <div class="info-block">
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Alamat</div>
+          <div class="info-value">
+            Centre of Excellence (COE)<br>
+            Pusat Flora Cheras, Jabatan Pertanian Hulu Langat<br>
+            Batu 11, 43000 Kajang, Selangor
+          </div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">⏰</div>
+        <div>
+          <div class="info-label">Waktu Kursus</div>
+          <div class="info-value">9.30 Pagi – 4.30 Petang</div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📱</div>
+        <div>
+          <div class="info-label">WhatsApp</div>
+          <div class="info-value"><a href="https://wa.me/60199361079">+60 19-936 1079</a></div>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🌐</div>
+        <div>
+          <div class="info-label">Media Sosial</div>
+          <div class="info-value">
+            <a href="https://www.facebook.com/share/1BiKUVSktQ/" target="_blank">Facebook: Academy COE</a><br>
+            <a href="https://www.tiktok.com/@coe_mas?_r=1&_t=ZS-96Jtls7mvJa" target="_blank">TikTok: @coe_mas</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map-card">
+      <a href="https://maps.app.goo.gl/GoGkuU9kXyPXmgGo6" target="_blank" style="display:block;text-decoration:none;">
+        <div class="map-visual">
+          <div class="map-grid"></div>
+          <div class="map-road-h"></div>
+          <div class="map-road-v"></div>
+          <div class="map-pin">
+            <div class="map-pin-icon">📍</div>
+            <div class="map-pin-label">ACADEMY COE — KAJANG</div>
+          </div>
+        </div>
+      </a>
+      <div class="map-footer">
+        <span style="font-size:12px;color:var(--text2);">Batu 11, 43000 Kajang, Selangor</span>
+        <a href="https://maps.app.goo.gl/GoGkuU9kXyPXmgGo6" target="_blank">Dapatkan Arah →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">ACADEMY <span>COE</span></div>
+      <p class="footer-desc">Pusat latihan kemahiran usahawan yang menyediakan kursus praktikal berkualiti tinggi untuk membantu anda mulakan perniagaan sendiri.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/share/1BiKUVSktQ/" target="_blank" class="social-btn">f</a>
+        <a href="https://www.tiktok.com/@coe_mas?_r=1&_t=ZS-96Jtls7mvJa" target="_blank" class="social-btn">tt</a>
+        <a href="https://wa.me/60199361079" target="_blank" class="social-btn">wa</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Kursus</h4>
+      <ul>
+        <li><a href="#kursus">Jus Buah-Buahan</a></li>
+        <li><a href="#kursus">Pengawetan Makanan</a></li>
+        <li><a href="#kursus">Bahan Asas Kelulut</a></li>
+        <li><a href="#kursus">Cucian Industri</a></li>
+        <li><a href="#kursus">Aromaterapi</a></li>
+        <li><a href="#kursus">Skincare</a></li>
+        <li><a href="#kursus">Detergent Cair</a></li>
+        <li><a href="#kursus">Perfumery</a></li>
+        <li><a href="#kursus">Sambal & Sos</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Pautan</h4>
+      <ul>
+        <li><a href="#kenapa">Kenapa COE</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+        <li><a href="#lokasi">Lokasi</a></li>
+        <li><a href="https://wa.me/60199361079" target="_blank">Hubungi Kami</a></li>
+        <li><a href="https://academycoe.com">Website Rasmi</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 <span>Academy COE</span> — Centre of Excellence. Hak Cipta Terpelihara.</div>
+    <div class="footer-copy">📍 Batu 11, 43000 Kajang, Selangor &nbsp;|&nbsp; <a href="https://wa.me/60199361079" style="color:var(--yellow);text-decoration:none;">+60 19-936 1079</a></div>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/60199361079?text=Saya%20ingin%20tanya%20tentang%20kursus%20Academy%20COE" target="_blank" class="wa-float" title="WhatsApp Kami">💬</a>
+
+<!-- LIGHTBOXES -->
+<div class="lightbox" id="lb-01" onclick="if(event.target===this)closeLightbox('lb-01')">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox('lb-01')">✕</button>
+    <img src="img/kursus-01-jus.jpg" alt="Flyer Kursus Jus Buah-Buahan">
+    <div class="lightbox-cta">
+      <a href="#" class="lc-primary">Daftar Sekarang</a>
+      <a href="https://wa.me/60199361079?text=Saya%20berminat%20Kursus%20Jus%20Buah-Buahan%20Academy%20COE" target="_blank" class="lc-secondary">Tanya Admin</a>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lb-02" onclick="if(event.target===this)closeLightbox('lb-02')">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox('lb-02')">✕</button>
+    <img src="img/kursus-02-pengawetan.jpg" alt="Flyer Kursus Pengawetan Makanan">
+    <div class="lightbox-cta">
+      <a href="#" class="lc-primary">Daftar Sekarang</a>
+      <a href="https://wa.me/60199361079?text=Saya%20berminat%20Kursus%20Pengawetan%20Makanan%20Academy%20COE" target="_blank" class="lc-secondary">Tanya Admin</a>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lb-03" onclick="if(event.target===this)closeLightbox('lb-03')">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox('lb-03')">✕</button>
+    <img src="img/kursus-03-kelulut.jpg" alt="Flyer Kursus Kelulut">
+    <div class="lightbox-cta">
+      <a href="#" class="lc-primary">Daftar Sekarang</a>
+      <a href="https://wa.me/60199361079?text=Saya%20berminat%20Kursus%20Kelulut%20Academy%20COE" target="_blank" class="lc-secondary">Tanya Admin</a>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lb-04" onclick="if(event.target===this)closeLightbox('lb-04')">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox('lb-04')">✕</button>
+    <img src="img/kursus-04-cucian.jpg" alt="Flyer Kursus Cucian Industri">
+    <div class="lightbox-cta">
+      <a href="#" class="lc-primary">Daftar Sekarang</a>
+      <a href="https://wa.me/60199361079?text=Saya%20berminat%20Kursus%20Cucian%20Industri%20Academy%20COE" target="_blank" class="lc-secondary">Tanya Admin</a>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lb-05" onclick="if(event.target===this)closeLightbox('lb-05')">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox('lb-05')">✕</button>
+    <img src="img/kursus-05-aromaterapi.jpg" alt="Flyer Kursus Aromaterapi">
+    <div class="lightbox-cta">
+      <a href="#" class="lc-primary">Daftar Sekarang</a>
+      <a href="https://wa.me/60199361079?text=Saya%20berminat%20Kursus%20Aromaterapi%20Academy%20COE" target="_blank" class="lc-secondary">Tanya Admin</a>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lb-06" onclick="if(event.target===this)closeLightbox('lb-06')">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox('lb-06')">✕</button>
+    <img src="img/kursus-06-skincare.jpg" alt="Flyer Kursus Skincare">
+    <div class="lightbox-cta">
+      <a href="#" class="lc-primary">Daftar Sekarang</a>
+      <a href="https://wa.me/60199361079?text=Saya%20berminat%20Kursus%20Skincare%20Academy%20COE" target="_blank" class="lc-secondary">Tanya Admin</a>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lb-07" onclick="if(event.target===this)closeLightbox('lb-07')">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox('lb-07')">✕</button>
+    <img src="img/kursus-07-detergent.jpg" alt="Flyer Kursus Detergent">
+    <div class="lightbox-cta">
+      <a href="#" class="lc-primary">Daftar Sekarang</a>
+      <a href="https://wa.me/60199361079?text=Saya%20berminat%20Kursus%20Detergent%20Academy%20COE" target="_blank" class="lc-secondary">Tanya Admin</a>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lb-08" onclick="if(event.target===this)closeLightbox('lb-08')">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox('lb-08')">✕</button>
+    <img src="img/kursus-08-perfumery.jpg" alt="Flyer Kursus Perfumery">
+    <div class="lightbox-cta">
+      <a href="#" class="lc-primary">Daftar Sekarang</a>
+      <a href="https://wa.me/60199361079?text=Saya%20berminat%20Kursus%20Perfumery%20Academy%20COE" target="_blank" class="lc-secondary">Tanya Admin</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLightbox(id){
+  document.getElementById(id).classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(id){
+  document.getElementById(id).classList.remove('active');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    document.querySelectorAll('.lightbox.active').forEach(lb=>{
+      lb.classList.remove('active');
+    });
+    document.body.style.overflow='';
+  }
+});
+</script>
+</body>
+</html>
